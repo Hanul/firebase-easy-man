@@ -1,0 +1,10 @@
+{
+  "firebase": "easy-man",
+  "public": "",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**",
+    ".project"
+  ]
+}

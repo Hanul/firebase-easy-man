@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>firebase-easy-man</title>
+		<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+		<script src="firebase-easy-man.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	</head>
+	<body>
+		까아-꿍
+		<button id="join">
+			가-입
+		</button>
+		<button id="login">
+			로그-인
+		</button>
+		<button id="updateEmail">
+			이메일 변경
+		</button>
+		<button id="logout">
+			로그아웃
+		</button>
+		<button id="save">
+			값 저장
+		</button>
+		<script>
+			var fem = FirebaseEasyMan('https://easy-man.firebaseio.com/');
+
+			$('#join').click(function() {
+				fem.join('your@email.com', 'password', function(err, userData) {
+					console.log(err, userData);
+				});
+			});
+
+			$('#login').click(function() {
+				fem.login('your@email.com', 'password', function(err, authData) {
+					console.log(err, authData);
+				});
+			});
+
+			$('#logout').click(function() {
+				fem.logout();
+			});
+
+			$('#save').click(function() {
+				fem.save('sample', {
+					test : 123
+				}, function(err, savedData) {
+					console.log(err, savedData);
+
+					fem.get('sample', savedData.id, function(err, savedData) {
+						console.log(err, savedData);
+					});
+				});
+			});
+			
+			fem.find('sample', 'test', 123, 123, 3, function(err, savedData) {
+				console.log(err, savedData);
+			});
+		</script>
+	</body>
+</html>
