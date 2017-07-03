@@ -1,3 +1,5 @@
+*이 프로젝트는 [Firecase](https://github.com/Hanul/Firecase) 프로젝트에 통합되었습니다.*
+
 # firebase-easy-man
 oh yeah~
 
